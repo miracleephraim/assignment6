@@ -1,0 +1,223 @@
+---
+title: "Untitled"
+format: html
+---
+### question 1 
+Explanation of the fibonacci Function
+The fibonacci function generates the first n numbers in the Fibonacci sequence. Here's a step-by-step breakdown of how the function works:
+
+Function Definition:
+
+The function fibonacci takes a single parameter n, which represents the number of Fibonacci numbers to generate.
+Base Case: n <= 0:
+
+If n is less than or equal to 0, the function returns an empty list because there are no Fibonacci numbers to generate.
+Base Case: n == 1:
+
+If n is 1, the function returns a list containing only the first Fibonacci number, which is [0].
+Base Case: n == 2:
+
+If n is 2, the function returns a list containing the first two Fibonacci numbers, which are [0, 1].
+General Case: n > 2:
+
+If n is greater than 2, the function initializes a list fib with the first two Fibonacci numbers [0, 1].
+The for loop starts from 2 and goes up to n-1. For each iteration, it calculates the next Fibonacci number by summing the two preceding numbers (fib[i-1] and fib[i-2]) and appends it to the list fib.
+Finally, the function returns the list fib containing the first n Fibonacci numbers.
+
+### question 2
+```{bash}
+# Create a new directory for the repository
+mkdir assignment6
+cd assignment6
+
+# Initialize a new Git repository
+git init
+
+# Create a README.md file
+echo "# Assingment 6 Repository" > README.md
+
+# Create a .gitignore file for Python projects
+echo "*.pyc" >> .gitignore
+
+# Add the files to the staging area
+git add .
+
+# Commit the changes
+git commit -m "Initial commit"
+
+# Add the remote repository (replace <REMOTE_URL> with your repository URL)
+git remote add origin https://github.com/miracleephraim/assignment6.git
+
+# Push the changes to the remote repository
+git push -u origin master
+```
+
+### question 3
+
+original
+``` {python}
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+
+primes = []
+for i in range(1, 101):
+    if is_prime(i):
+        primes.append(i)
+
+print(primes)
+```
+
+revised
+```{python}
+import math
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+primes = [i for i in range(1, 101) if is_prime(i)]
+
+print(primes)
+```
+
+### question 4
+terminal commands
+mkdir data_analysis
+cd data_analysis
+echo "#!/usr/bin/env python" > analysis.py
+
+### question 5
+```{python}
+#code w errors
+def factorial(n):
+    if n < 0:
+        return None
+    result = 1
+    for i in range(1, n + 2):
+        result *= i
+    return result
+
+```
+
+```{python}
+### revised 
+def factorial(n):
+    if n < 0:
+        return None
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+```
+
+### question 6
+``` {r}
+calculate_factorial <- function(n) {
+  if (n == 0) {
+    return(1)
+  } else {
+    return(n * calculate_factorial(n - 1))
+  }
+}
+```
+
+With documentation
+```{r}
+
+#' Calculate the factorial of a number
+#'
+#' This function calculates the factorial of a given non-negative integer `n`.
+#' The factorial of `n` (denoted as `n!`) is the product of all positive integers
+#' less than or equal to `n`.
+#'
+#' @param n A non-negative integer whose factorial is to be calculated.
+#' @return The factorial of the input number `n`. If `n` is 0, the function returns 1.
+#' @examples
+#' calculate_factorial(5) # returns 120
+#' calculate_factorial(0) # returns 1
+calculate_factorial <- function(n) {
+  if (n == 0) {
+    return(1)
+  } else {
+    return(n * calculate_factorial(n - 1))
+  }
+}
+```
+
+### question 7
+``` {python}
+def normalize_data(data):
+    min_val = min(data)
+    max_val = max(data)
+    return [(x - min_val) / (max_val - min_val) for x in data]
+
+# key points from copilot
+# Normalization: This process is useful in data preprocessing, especially in machine learning, where features are often normalized to improve the performance of algorithms.
+# Edge Cases: If all elements in data are the same, max_val - min_val would be 0, leading to a division by zero error. This should be handled in a robust implementation.
+```
+
+### question 8
+``` {python}
+#python ver. 
+
+import pandas as pd
+
+# Create a sample DataFrame with missing values
+df = pd.DataFrame({
+    'A': [1, 2, None, 4, 5],
+    'B': [None, 2, 3, 4, 5],
+    'C': [1, 2, 3, None, 5],
+    'D': [1, 2, 3, 4, 5]
+})
+
+# Define the function
+def count_missing_values(df):
+    return df.isna().sum()
+
+# Test the function
+result = count_missing_values(df)
+print(result)
+
+```
+
+### question 9
+``` {python}
+def count_vowels(input_string):
+    vowels = 'aeiouAEIOU'
+    count = 0
+    for char in input_string:
+        if char in vowels:
+            count += 1
+    return count
+
+# Example usage
+print(count_vowels("Hello World"))  # Output: 3
+```
+
+``` {r}
+count_vowels <- function(input_string) {
+  vowels <- c('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+  count <- 0
+  for (char in strsplit(input_string, NULL)[[1]]) {
+    if (char %in% vowels) {
+      count <- count + 1
+    }
+  }
+  return(count)
+}
+
+# Example usage
+print(count_vowels("Hello World"))  # Output: 3
+```
+
+### question 10
+message decoded: "You've completed the assignment. Congratulations!"
