@@ -1,5 +1,6 @@
 ---
-title: "Untitled"
+title: "Assignment 6"
+date: "10-16-2024"
 format: html
 ---
 ### question 1 
@@ -25,41 +26,41 @@ The for loop starts from 2 and goes up to n-1. For each iteration, it calculates
 Finally, the function returns the list fib containing the first n Fibonacci numbers.
 
 ### question 2
-```{bash}
-# Create a new directory for the repository
+
+**Create a new directory for the repository**
 mkdir assignment6
 cd assignment6
 
-# Initialize a new Git repository
+**Initialize a new Git repository**
 git init
 
-# Create a README.md file
+**Create a README.md file**
 echo "# Assingment 6 Repository" > README.md
 
-# Create a .gitignore file for Python projects
+**Create a .gitignore file for Python projects**
 echo "*.pyc" >> .gitignore
 
-# Add the files to the staging area
+**Add the files to the staging area**
 git add .
 
-# Commit the changes
+**Commit the changes**
 git commit -m "Initial commit"
 
-# Add the remote repository (replace <REMOTE_URL> with your repository URL)
+**Add the remote repository (replace <REMOTE_URL> with your repository URL)**
 git remote add origin https://github.com/miracleephraim/assignment6.git
 
-# Push the changes to the remote repository
+**Push the changes to the remote repository**
 git push -u origin master
-```
+
 
 ### question 3
 
 original
-``` {python}
+```{python}
 def is_prime(num):
     if num <= 1:
         return False
-    for i in range(2, num):
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
             return False
     return True
